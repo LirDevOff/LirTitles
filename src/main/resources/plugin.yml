@@ -1,0 +1,16 @@
+main: org.lirdev.lirtitles.LirTitles
+version: 1.0
+name: LirTitles
+author: LirStudio
+website: 'https://t.me/lirstudioo'
+api-version: '1.21'
+folia-supported: true
+softdepend: [PlaceholderAPI, ItemsAdder, Oraxen, Nexo]
+libraries:
+  - org.xerial:sqlite-jdbc:3.46.1.0
+  - com.mysql:mysql-connector-j:8.4.0
+permissions:
+  lirtitles.admin:
+    default: op
+  lirtitles.unlockall:
+    default: op

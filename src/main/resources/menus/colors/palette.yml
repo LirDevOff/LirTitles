@@ -1,0 +1,210 @@
+# Preset colors available while editing a custom title.
+id: color_selection
+# Text displayed in the inventory window. Supports MiniMessage and menu placeholders.
+menu_title: "Choose a Color"
+# Inventory size in slots: a multiple of 9 from 9 to 54.
+size: 45
+
+# Item options: material accepts a Bukkit name or supported custom-item ID; amount sets stack size.
+# slot/slots set 0-based positions. display_name/lore support MiniMessage and menu placeholders.
+# click_commands accepts [sound] <name> [volume] [pitch], [message], [broadcast], [console], [player],
+# [permission] <node>, [close], [open_menu] <id>, and [delay] <ticks> before following actions.
+items:
+  back:
+    material: BARRIER
+    slot: 40
+    display_name: "<#FF5555>Back"
+    lore: [" <#FFE7E7>Return to the title editor"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  custom:
+    material: BLAZE_POWDER
+    slot: 44
+    display_name: "<#b6c2f1>Custom color"
+    lore:
+      - " <#E7EBFF>Use the anvil to enter a hex color"
+      - " <#E7EBFF>Example: <#b6c2f1>#ffffff"
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+# Add one entry per selectable color. id must be unique; hex uses #RRGGBB; slot is its palette position.
+# {selected} in display_name is replaced when this color is active; display_name/lore support MiniMessage.
+# click_commands uses the same actions described above.
+colors:
+  - id: white
+    hex: "#F2F2F2"
+    slot: 10
+    display_name: "<#F2F2F2>White {selected} <gray>(#F2F2F2)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: light_gray
+    hex: "#BFBFBF"
+    slot: 11
+    display_name: "<#BFBFBF>Light gray {selected} <gray>(#BFBFBF)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: red
+    hex: "#BA2C2C"
+    slot: 12
+    display_name: "<#BA2C2C>Red {selected} <gray>(#BA2C2C)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: orange
+    hex: "#C16325"
+    slot: 13
+    display_name: "<#C16325>Orange {selected} <gray>(#C16325)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: gold
+    hex: "#C59420"
+    slot: 14
+    display_name: "<#C59420>Gold {selected} <gray>(#C59420)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: yellow
+    hex: "#C1AC25"
+    slot: 15
+    display_name: "<#C1AC25>Yellow {selected} <gray>(#C1AC25)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: lime
+    hex: "#8CB234"
+    slot: 16
+    display_name: "<#8CB234>Lime {selected} <gray>(#8CB234)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: green
+    hex: "#3E9841"
+    slot: 19
+    display_name: "<#3E9841>Green {selected} <gray>(#3E9841)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: teal
+    hex: "#389482"
+    slot: 20
+    display_name: "<#389482>Teal {selected} <gray>(#389482)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: cyan
+    hex: "#309EA6"
+    slot: 21
+    display_name: "<#309EA6>Cyan {selected} <gray>(#309EA6)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: sky_blue
+    hex: "#307FA6"
+    slot: 22
+    display_name: "<#307FA6>Sky blue {selected} <gray>(#307FA6)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: blue
+    hex: "#334FA3"
+    slot: 23
+    display_name: "<#334FA3>Blue {selected} <gray>(#334FA3)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: indigo
+    hex: "#4436A1"
+    slot: 24
+    display_name: "<#4436A1>Indigo {selected} <gray>(#4436A1)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: purple
+    hex: "#6F389F"
+    slot: 25
+    display_name: "<#6F389F>Purple {selected} <gray>(#6F389F)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: magenta
+    hex: "#A136A1"
+    slot: 28
+    display_name: "<#A136A1>Magenta {selected} <gray>(#A136A1)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: pink
+    hex: "#C93673"
+    slot: 29
+    display_name: "<#C93673>Pink {selected} <gray>(#C93673)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: rose
+    hex: "#B23449"
+    slot: 30
+    display_name: "<#B23449>Rose {selected} <gray>(#B23449)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: brown
+    hex: "#825935"
+    slot: 31
+    display_name: "<#825935>Brown {selected} <gray>(#825935)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: tan
+    hex: "#A17A45"
+    slot: 32
+    display_name: "<#A17A45>Tan {selected} <gray>(#A17A45)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: gray
+    hex: "#808080"
+    slot: 33
+    display_name: "<#808080>Gray {selected} <gray>(#808080)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: dark_gray
+    hex: "#474747"
+    slot: 34
+    display_name: "<#474747>Dark gray {selected} <gray>(#474747)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  - id: black
+    hex: "#1A1A1A"
+    slot: 37
+    display_name: "<#1A1A1A>Black {selected} <gray>(#1A1A1A)"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this color"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+

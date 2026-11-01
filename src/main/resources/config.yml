@@ -1,0 +1,113 @@
+# General plugin settings, database connection, and player-facing messages.
+# Text values support MiniMessage unless a field says otherwise.
+# Added before plugin messages; customize its text and formatting for your server.
+prefix: "<#b6c2f1><b>LirTitles</b></#b6c2f1> <#E7EBFF>→</#E7EBFF>"
+# Do not edit. Used to migrate this file when plugin defaults change.
+config-version: 1
+
+# Check for plugin updates and notify administrators when a new release is available.
+update-checker: true
+
+settings:
+  # Require a confirmation screen before applying a title.
+  title-confirmation: true
+
+  # Settings for player-created titles.
+  custom-titles:
+    # Enable or disable this feature.
+    enabled: true
+
+    # Allowed length of custom-title text.
+    length:
+      # Minimum allowed custom-title text length (inclusive).
+      min: 5
+      # Maximum allowed custom-title text length (inclusive).
+      max: 20
+
+    # Settings for moderator approval of player-created titles.
+    moderation:
+      # Enable or disable this feature.
+      enabled: true
+
+storage:
+  # Storage backend: sqlite for a local file or mysql for a shared database.
+  type: sqlite
+  sqlite:
+    # SQLite database filename, relative to the plugin data folder.
+    file: "data.db"
+    # Maximum number of database connections. Must be positive; invalid values use the default.
+    pool-size: 4
+  # Used only when storage.type is mysql.
+  mysql:
+    # MySQL server hostname or IP address.
+    host: "localhost"
+    port: 3306
+    database: "lirtitles"
+    # MySQL login username.
+    username: "root"
+    # MySQL login password. Keep this value private.
+    password: ""
+    # Additional JDBC connection options appended to the MySQL connection URL.
+    parameters: "useSSL=false&useUnicode=true&characterEncoding=utf8"
+    # Maximum number of database connections. Must be positive; invalid values use the default.
+    pool-size: 10
+
+# Player-facing text. Values support MiniMessage and placeholders such as {prefix}, {title}, {player}, {amount}, {reason}, {time}, and {id}.
+messages:
+  commands:
+    # Text returned by plugin commands.
+    # Lines shown by the help command. Keep each entry as a separate YAML list item.
+    help:
+      - ""
+      - " {prefix} <#b6c2f1>Available commands:</#b6c2f1>"
+      - "  <#b6c2f1>▪</#b6c2f1> <#b6c2f1>/titles</#b6c2f1> <#E7EBFF>— open the titles menu</#E7EBFF>"
+      - "  <#b6c2f1>▪</#b6c2f1> <#b6c2f1>/lirtitles reload</#b6c2f1> <#E7EBFF>— reload configuration</#E7EBFF>"
+      - "  <#b6c2f1>▪</#b6c2f1> <#b6c2f1>/lirtitles moderation</#b6c2f1> <#E7EBFF>— open the custom title moderation queue</#E7EBFF>"
+      - "  <#b6c2f1>▪</#b6c2f1> <#b6c2f1>/lirtitles give <targets> title <category.title></#b6c2f1> <#E7EBFF>— give a title</#E7EBFF>"
+      - "  <#b6c2f1>▪</#b6c2f1> <#b6c2f1>/lirtitles give <targets> token <amount></#b6c2f1> <#E7EBFF>— give custom title tokens</#E7EBFF>"
+      - ""
+
+    admin:
+      # Admin command feedback. Available placeholders depend on the message: {time}, {title}, {player}, {amount}.
+      reload-success: "{prefix} <#E7EBFF>Configuration successfully reloaded in </#E7EBFF><#b6c2f1>{time}ms</#b6c2f1><#E7EBFF>.</#E7EBFF>"
+      title-given: "{prefix} <#E7EBFF>Title </#E7EBFF><#b6c2f1>'{title}'</#b6c2f1><#E7EBFF> was given to player </#E7EBFF><#b6c2f1>'{player}'</#b6c2f1><#E7EBFF>.</#E7EBFF>"
+      tokens-given: "{prefix} <#E7EBFF>Given </#E7EBFF><#b6c2f1>{amount}</#b6c2f1><#E7EBFF> custom title tokens to player </#E7EBFF><#b6c2f1>'{player}'</#b6c2f1><#E7EBFF>.</#E7EBFF>"
+      no-targets-found: "{prefix} <#E7EBFF>Selector found </#E7EBFF><#b6c2f1>no players</#b6c2f1><#E7EBFF>.</#E7EBFF>"
+
+  titles:
+    # Feedback shown when a player selects a title.
+    selected: "{prefix} <#E7EBFF>Selected title: </#E7EBFF><#b6c2f1>'{title}'</#b6c2f1><#E7EBFF>.</#E7EBFF>"
+    already-selected: "{prefix} <#E7EBFF>You already have </#E7EBFF><#b6c2f1>'{title}'</#b6c2f1><#E7EBFF> selected.</#E7EBFF>"
+    no-available-in-category: "{prefix} <#E7EBFF>You do not have any </#E7EBFF><#b6c2f1>available titles</#b6c2f1><#E7EBFF> in this category yet.</#E7EBFF>"
+
+  custom-titles:
+    # Feedback and prompts for creating, editing, and deleting custom titles.
+    created: "{prefix} <#E7EBFF>Custom title </#E7EBFF><#b6c2f1>'{title}'</#b6c2f1><#E7EBFF> has been </#E7EBFF><#b6c2f1>created!</#b6c2f1>"
+    deleted: "{prefix} <#E7EBFF>Custom title </#E7EBFF><#b6c2f1>'{title}'</#b6c2f1><#E7EBFF> has been </#E7EBFF><#b6c2f1>deleted.</#b6c2f1>"
+    input-prompt: "{prefix} <#E7EBFF>Enter your title in the anvil input using </#E7EBFF><#b6c2f1>MiniMessage</#b6c2f1><#E7EBFF>. Current: </#E7EBFF>{title}"
+
+    errors:
+      no-tokens: "{prefix} <#E7EBFF>You do not have any </#E7EBFF><#b6c2f1>custom title tokens</#b6c2f1><#E7EBFF>. Ask an administrator to give you some.</#E7EBFF>"
+      invalid-length: "{prefix} <#E7EBFF>Title length must be between </#E7EBFF><#b6c2f1>1 and 128 characters</#b6c2f1><#E7EBFF>.</#E7EBFF>"
+      invalid-format: "{prefix} <#E7EBFF><#b6c2f1>MiniMessage format error.</#b6c2f1> Please try again.</#E7EBFF>"
+      missing-text: "{prefix} <#E7EBFF>Enter </#E7EBFF><#b6c2f1>title text</#b6c2f1><#E7EBFF> before confirming.</#E7EBFF>"
+      not-approved: "{prefix} <#E7EBFF>This title is still </#E7EBFF><#b6c2f1>awaiting moderator approval</#b6c2f1><#E7EBFF>.</#E7EBFF>"
+
+  custom-colors:
+    # Prompt and validation feedback for custom hex colors.
+    input-prompt: "{prefix} <#E7EBFF>Enter a hex color in the anvil input, e.g. </#E7EBFF><#b6c2f1>#ffffff</#b6c2f1><#E7EBFF>. Use the cancel button to go back.</#E7EBFF>"
+    errors:
+      invalid-format: "{prefix} <#E7EBFF>That is not a valid hex color. Use a format like </#E7EBFF><#b6c2f1>#ffffff</#b6c2f1><#E7EBFF>.</#E7EBFF>"
+
+  moderation:
+    # Prompts and feedback for moderator review actions.
+    reason-prompt: "{prefix} <#E7EBFF>Enter the rejection reason in the anvil input. Use the cancel button to go back.</#E7EBFF>"
+    approved: "{prefix} <#b6c2f1>Approved</#b6c2f1> <#E7EBFF>the custom title </#E7EBFF><#b6c2f1>'{title}'</#b6c2f1><#E7EBFF> from </#E7EBFF><#b6c2f1>{player}</#b6c2f1><#E7EBFF>.</#E7EBFF>"
+    rejected: "{prefix} <#b6c2f1>Rejected</#b6c2f1> <#E7EBFF>the custom title </#E7EBFF><#b6c2f1>'{title}'</#b6c2f1><#E7EBFF> from </#E7EBFF><#b6c2f1>{player}</#b6c2f1><#E7EBFF>.</#E7EBFF>"
+    no-reason-fallback: "<#E7EBFF>No reason provided</#E7EBFF>"
+    rejection-notice: "{prefix} <#E7EBFF>Your title </#E7EBFF><#b6c2f1>'{title}'</#b6c2f1><#E7EBFF> was </#E7EBFF><#b6c2f1>rejected</#b6c2f1><#E7EBFF>. Reason: </#E7EBFF><#b6c2f1>{reason}</#b6c2f1><#E7EBFF>. </#E7EBFF><#b6c2f1>{time}</#b6c2f1><#E7EBFF> ago.</#E7EBFF>"
+
+  errors:
+    # General command errors.
+    player-only: "{prefix} <#E7EBFF>This command can only be used by </#E7EBFF><#b6c2f1>players</#b6c2f1><#E7EBFF>.</#E7EBFF>"
+    title-not-found: "{prefix} <#E7EBFF>Title </#E7EBFF><#b6c2f1>'{id}'</#b6c2f1><#E7EBFF> not found.</#E7EBFF>"

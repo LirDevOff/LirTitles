@@ -1,0 +1,103 @@
+# Layout and item templates for the title selection inventory.
+id: title_selection
+# Text displayed in the inventory window. Supports MiniMessage and menu placeholders.
+menu_title: "{category} <dark_gray>({current_page}/{max_pages})"
+# Inventory size in slots: a multiple of 9 from 9 to 54.
+size: 45
+
+# Slot ranges reserved for title entries; range end is exclusive.
+titles-slots:
+  - 10-17
+  - 19-26
+  - 28-35
+
+# Item options: material accepts a Bukkit name or supported custom-item ID; amount sets stack size.
+# slot/slots set 0-based positions. display_name/lore support MiniMessage and menu placeholders.
+# click_commands accepts [sound] <name> [volume] [pitch], [message], [broadcast], [console], [player],
+# [permission] <node>, [close], [open_menu] <id>, and [delay] <ticks> before following actions.
+items:
+  # Appearance of a title the player has not unlocked.
+  locked:
+    material: BARRIER
+    amount: 1
+    display_name: "{title}"
+    lore:
+      - " <#FF5555>Locked"
+      - ""
+      - " <#FF5555>▪ <#FFE7E7>You have not unlocked this title yet."
+    click_commands:
+      - "[message] {prefix} <#FF5555>You have not unlocked this title yet."
+      - "[sound] entity.villager.no 1 1"
+
+  # Appearance of an unlocked title that is not currently selected.
+  available:
+    material: NAME_TAG
+    amount: 1
+    display_name: "{title}"
+    lore:
+      - " <#BFF3C7>Click to select"
+      - ""
+      - " <#BFF3C7>▪ <#E7FFE7>Available title"
+    click_commands:
+      - "[sound] entity.experience_orb.pickup 0.8 1.2"
+
+  # Appearance of the title currently selected by the player.
+  active:
+    material: LIME_DYE
+    amount: 1
+    # Set true to show the enchantment glint.
+    glow: true
+    display_name: "{title}"
+    lore:
+      - " <#BFF3C7>Currently selected"
+      - ""
+      - " <#BFF3C7>▪ <#E7FFE7>This title is currently active"
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  back:
+    material: IRON_DOOR
+    amount: 1
+    slot: 40
+    display_name: "<#b6c2f1>Back"
+    lore:
+      - " <#E7EBFF>Return to title categories"
+      - ""
+      - " <#b6c2f1>▪ <#E7EBFF>Click to go back"
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  font:
+    material: BOOK
+    amount: 1
+    slot: 4
+    display_name: "<#E7EBFF><sprite:items:item/name_tag></#E7EBFF> <#b6c2f1>Fonts"
+    # Text added for the selected font option.
+    selected_format: " <#b6c2f1>→ {font}"
+    # Text added for each available, unselected font option.
+    available_format: " <#E7EBFF>{font}"
+    lore:
+      - " <#E7EBFF>Choose your font"
+      - ""
+      - "{font_options}"
+      - ""
+      - " <#b6c2f1>Left click <#E7EBFF>— next font"
+      - " <#b6c2f1>Right click <#E7EBFF>— previous font"
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  next-page:
+    material: ARROW
+    amount: 1
+    slot: 41
+    display_name: "<#BFF3C7>Next page"
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  previous-page:
+    material: ARROW
+    amount: 1
+    slot: 39
+    display_name: "<#b6c2f1>Previous page"
+    click_commands:
+      - "[sound] ui.button.click 1 1"

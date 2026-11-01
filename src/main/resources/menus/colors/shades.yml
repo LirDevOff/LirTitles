@@ -1,0 +1,40 @@
+# Generated shade choices for a selected custom color.
+id: color_shades
+# Text displayed in the inventory window. Supports MiniMessage and menu placeholders.
+menu_title: "Choose a shade"
+# Inventory size in slots: a multiple of 9 from 9 to 54.
+size: 45
+
+# How many shade choices to generate.
+generated_shade_count: 27
+
+# Item options: material accepts a Bukkit name or supported custom-item ID; amount sets stack size.
+# slot/slots set 0-based positions. display_name/lore support MiniMessage and menu placeholders.
+# click_commands accepts [sound] <name> [volume] [pitch], [message], [broadcast], [console], [player],
+# [permission] <node>, [close], [open_menu] <id>, and [delay] <ticks> before following actions.
+items:
+  back:
+    material: BARRIER
+    slot: 40
+    display_name: "<#FF5555>Back"
+    lore: [" <#FFE7E7>Return to color selection"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  custom:
+    material: BLAZE_POWDER
+    slot: 44
+    display_name: "<#b6c2f1>Custom color"
+    lore:
+      - " <#E7EBFF>Use the anvil to enter a hex color"
+      - " <#E7EBFF>Example: <#b6c2f1>#ffffff"
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  # Template used for each generated shade. {selected} and {hex} are replaced by the plugin.
+  shade:
+    material: LEATHER_CHESTPLATE
+    display_name: "Shade {selected} {hex}"
+    lore: [" <#b6c2f1>Click <#E7EBFF>— choose this shade"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"

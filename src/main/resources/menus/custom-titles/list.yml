@@ -1,0 +1,125 @@
+# Layout and item templates for the player custom-title list.
+id: custom_titles
+# Text displayed in the inventory window. Supports MiniMessage and menu placeholders.
+menu_title: "My Custom Titles"
+# Inventory size in slots: a multiple of 9 from 9 to 54.
+size: 45
+# Entry layout mode. dynamic places entries in available slots; static uses the slot below.
+layout: dynamic
+# First inventory slot used for automatically placed entries.
+first_slot: 0
+
+# Item options: material accepts a Bukkit name or supported custom-item ID; amount sets stack size.
+# slot/slots set 0-based positions. display_name/lore support MiniMessage and menu placeholders.
+# click_commands accepts [sound] <name> [volume] [pitch], [message], [broadcast], [console], [player],
+# [permission] <node>, [close], [open_menu] <id>, and [delay] <ticks> before following actions.
+items:
+  # Entry templates for custom-title states: pending, active, normal, and rejected.
+  title:
+    # Appearance while waiting for moderator approval.
+    pending:
+      material: NAME_TAG
+      amount: 1
+      display_name: "{title}"
+      lore:
+        - ""
+        - " <#b6c2f1>Status: <#F5D67A>Awaiting moderator review"
+        - " <#b6c2f1>Q <#E7EBFF>— delete"
+      click_commands:
+        - "[sound] ui.button.click 1 1"
+
+    # Appearance after moderator approval.
+    active:
+      material: NAME_TAG
+      amount: 1
+      display_name: "{title}"
+      lore:
+        - ""
+        - " <#b6c2f1>Status: <#BFF3C7>Active"
+        - " <#b6c2f1>Q <#E7EBFF>— delete"
+      click_commands:
+        - "[sound] ui.button.click 1 1"
+
+    # Appearance for a selectable custom title.
+    normal:
+      material: NAME_TAG
+      amount: 1
+      display_name: "{title}"
+      lore:
+        - " <#b6c2f1>Left click <#E7EBFF>— select"
+        - " <#b6c2f1>Q <#E7EBFF>— delete"
+      click_commands:
+        - "[sound] ui.button.click 1 1"
+
+    # Appearance for a rejected title; {reason} displays the moderator reason.
+    rejected:
+      material: NAME_TAG
+      amount: 1
+      display_name: "{title}"
+      lore:
+        - ""
+        - " <#b6c2f1>Status: <#E7EBFF>Rejected"
+        - " <#b6c2f1>Reason: <#E7EBFF>{reason}"
+        - " <#b6c2f1>Left click <#E7EBFF>— view the reason in chat"
+        - " <#b6c2f1>Q <#E7EBFF>— delete"
+      click_commands:
+        - "[sound] ui.button.click 1 1"
+
+  # Button that starts creating a custom title.
+  create:
+    material: LIME_DYE
+    amount: 1
+    # Entry layout mode. dynamic places entries in available slots; static uses the slot below.
+    layout: static
+    slot: 36
+    display_name: "<#BFF3C7>Create title"
+    lore:
+      - " <#E7FFE7>Create a title with MiniMessage formatting."
+      - ""
+      - " <#b6c2f1>Tokens available: <#E7EBFF>{tokens}"
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  # Font selector button.
+  font:
+    material: BOOK
+    amount: 1
+    slot: 40
+    display_name: "<#E7EBFF><sprite:items:item/name_tag></#E7EBFF> <#b6c2f1>Fonts"
+    # Text marking the selected font in {font_options}.
+    selected_format: " <#b6c2f1>→ {font}"
+    # Text marking another available font in {font_options}.
+    available_format: " <#E7EBFF>{font}"
+    lore:
+      - " <#E7EBFF>Choose your font"
+      - ""
+      - "{font_options}"
+      - ""
+      - " <#b6c2f1>Left click <#E7EBFF>— next font"
+      - " <#b6c2f1>Right click <#E7EBFF>— previous font"
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  back:
+    material: ARROW
+    amount: 1
+    slot: 44
+    display_name: "<#b6c2f1>Back"
+    lore:
+      - " <#E7EBFF>Return to categories"
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  next-page:
+    material: ARROW
+    amount: 1
+    slot: 41
+    display_name: "<#BFF3C7>Next page"
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  previous-page:
+    material: ARROW
+    amount: 1
+    slot: 39
+    display_name: "<#b6c2f1>Previous page"

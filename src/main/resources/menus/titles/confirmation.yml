@@ -1,0 +1,70 @@
+# Layout and buttons for confirming a title selection.
+id: title_apply
+# Text displayed in the inventory window. Supports MiniMessage and menu placeholders.
+menu_title: "Confirm Title"
+# Inventory size in slots: a multiple of 9 from 9 to 54.
+size: 36
+
+# Item options: material accepts a Bukkit name or supported custom-item ID; amount sets stack size.
+# slot/slots set 0-based positions. display_name/lore support MiniMessage and menu placeholders.
+# click_commands accepts [sound] <name> [volume] [pitch], [message], [broadcast], [console], [player],
+# [permission] <node>, [close], [open_menu] <id>, and [delay] <ticks> before following actions.
+items:
+  # Preview item showing the title about to be applied.
+  title:
+    material: NAME_TAG
+    amount: 1
+    slot: 22
+    display_name: "<#b6c2f1>Title Preview"
+    lore:
+      - " <#b6c2f1>→ <#E7EBFF>{preview}"
+      - ""
+      - " <#b6c2f1>▪ <#E7EBFF>In-game title preview."
+
+  # Font selector button.
+  font:
+    material: BOOK
+    amount: 1
+    slot: 4
+    display_name: "<#E7EBFF><sprite:items:item/name_tag></#E7EBFF> <#b6c2f1>Fonts"
+    # Text added for the selected font option.
+    selected_format: " <#b6c2f1>→ {font}"
+    # Text added for each available, unselected font option.
+    available_format: " <#E7EBFF>{font}"
+    lore:
+      - " <#E7EBFF>Choose your font"
+      - ""
+      - "{font_options}"
+      - ""
+      - " <#b6c2f1>Left click <#E7EBFF>— next font"
+      - " <#b6c2f1>Right click <#E7EBFF>— previous font"
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  # Button that confirms the title selection.
+  apply:
+    material: LIME_DYE
+    amount: 1
+    slot: 24
+    display_name: "<#BFF3C7>Apply"
+    lore:
+      - " <#E7FFE7>Confirm this title and font."
+      - ""
+      - " <#BFF3C7>▪ <#E7FFE7>Click to confirm"
+
+    click_commands:
+      - "[sound] entity.experience_orb.pickup 0.8 1.2"
+
+  # Button that cancels and returns to the previous menu.
+  deny:
+    material: RED_DYE
+    amount: 1
+    slot: 20
+    display_name: "<#FF5555>Cancel"
+    lore:
+      - " <#FFE7E7>Go back without applying."
+      - ""
+      - " <#FF5555>▪ <#FFE7E7>Click to cancel"
+
+    click_commands:
+      - "[sound] entity.villager.no 1 1"

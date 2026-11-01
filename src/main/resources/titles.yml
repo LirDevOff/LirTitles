@@ -1,0 +1,32 @@
+settings:
+  # Title placement mode: manual uses title slot values; range fills titles-slots in order.
+  slot-mode: manual
+
+# Each category key is used in title IDs. A category has display_name, material, optional slot, and titles.
+# Each title has display_name and an optional slot (used when slot-mode is manual).
+categories:
+  example:
+    display_name: "Example category"
+    material: BOOK
+    slot: 12
+    titles:
+      red:
+        display_name: "<red>Red"
+      newbine:
+        display_name: "<green>Newbine"
+      lirtitles:
+        display_name: "<bold><gradient:#6D86D1:#A8B7E4>LirTitles</gradient></bold>"
+        
+  example2:
+    # Category name shown in the menu. Supports MiniMessage formatting.
+    display_name: "Example category2"
+    # Icon material, using a Bukkit material name.
+    material: BOOK
+    slot: 14
+    titles:
+      red:
+        display_name: "<red>Red2"
+        slot: 10
+      newbine:
+        display_name: "<green>Newbine2"
+        slot: 11

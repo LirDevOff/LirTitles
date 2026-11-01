@@ -1,0 +1,48 @@
+# Layout and buttons for the category selection inventory.
+id: main
+# Text displayed in the inventory window. Supports MiniMessage and menu placeholders.
+menu_title: "Title Categories"
+# Inventory size in slots: a multiple of 9 from 9 to 54.
+size: 27
+
+# Item options: material accepts a Bukkit name or supported custom-item ID; amount sets stack size.
+# slot/slots set 0-based positions. display_name/lore support MiniMessage and menu placeholders.
+# click_commands accepts [sound] <name> [volume] [pitch], [message], [broadcast], [console], [player],
+# [permission] <node>, [close], [open_menu] <id>, and [delay] <ticks> before following actions.
+items:
+  # Template used for each category entry.
+  category:
+    material: BOOK
+    amount: 1
+    display_name: "<#b6c2f1>{category}"
+    lore:
+      - " <#b6c2f1>→ <#E7EBFF>Open category"
+      - ""
+      - " <#b6c2f1>▪ <#E7EBFF>Click to view titles"
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  # Optional static information item.
+  information:
+    material: PAPER
+    amount: 1
+    slot: 0
+    display_name: "<#b6c2f1>Choose a Title Category"
+    lore:
+      - " <#E7EBFF>Select a category"
+      - " <#E7EBFF>to view available titles."
+      - ""
+      - " <#b6c2f1>▪ <#E7EBFF>Select a category below"
+
+  # Button that opens the custom-title menu.
+  custom-titles:
+    material: WRITABLE_BOOK
+    amount: 1
+    slot: 26
+    display_name: "<#BFF3C7>Custom titles"
+    lore:
+      - " <#E7FFE7>Create and edit your own titles."
+      - ""
+      - " <#BFF3C7>▪ <#E7FFE7>Click to open"
+    click_commands:
+      - "[sound] ui.button.click 1 1"

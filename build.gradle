@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+    id 'com.gradleup.shadow' version '9.6.1'
+}
+
+group = 'org.lirdev.lirtitles'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
+    maven {
+        url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
+    }
+    maven {
+        url = 'https://repo.codemc.org/repository/maven-public/'
+    }
+}
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT'
+    compileOnly 'me.clip:placeholderapi:2.11.6'
+    compileOnly 'com.google.code.gson:gson:2.10.1'
+
+    implementation 'org.bstats:bstats-bukkit:3.1.0'
+}
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    filteringCharset = 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand props
+    }
+}
+
+shadowJar {
+    archiveClassifier.set('')
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    relocate 'org.bstats', 'org.lirdev.lirtitles.libs.bstats'
+}
+
+build {
+    dependsOn shadowJar
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+}

@@ -1,0 +1,34 @@
+# Text and item layout for the custom-title anvil input.
+menu_title: "Enter Custom Title"
+# Preview text before the player types a title.
+empty_preview: "Type the title text"
+
+# Item options: material accepts a Bukkit name or supported custom-item ID; amount sets stack size.
+# slot/slots set 0-based positions. display_name/lore support MiniMessage and menu placeholders.
+# click_commands accepts [sound] <name> [volume] [pitch], [message], [broadcast], [console], [player],
+# [permission] <node>, [close], [open_menu] <id>, and [delay] <ticks> before following actions.
+items:
+  # Item layout for cancelling text entry.
+  cancel:
+    material: RED_DYE
+    amount: 1
+    display_name: ""
+    lore:
+      - "<#FF5555>Cancel"
+      - " <#FFE7E7>Discard changes"
+
+  # Item layout for the entered title preview.
+  preview:
+    material: NAME_TAG
+    amount: 1
+    display_name: "{preview}"
+    lore:
+      - ""
+      - " <#b6c2f1>Length: <#E7EBFF>{min}-{max}"
+
+  # Item layout for accepting the entered text.
+  confirm:
+    material: LIME_DYE
+    amount: 1
+    display_name: "<#BFF3C7>Confirm"
+    lore: [" <#E7FFE7>Use this text"]

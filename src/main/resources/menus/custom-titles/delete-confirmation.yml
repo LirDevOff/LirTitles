@@ -1,0 +1,43 @@
+# Preview and buttons for custom-title deletion confirmation.
+id: custom_title_delete
+# Text displayed in the inventory window. Supports MiniMessage and menu placeholders.
+menu_title: "Delete title"
+# Inventory size in slots: a multiple of 9 from 9 to 54.
+size: 27
+
+# Item options: material accepts a Bukkit name or supported custom-item ID; amount sets stack size.
+# slot/slots set 0-based positions. display_name/lore support MiniMessage and menu placeholders.
+# click_commands accepts [sound] <name> [volume] [pitch], [message], [broadcast], [console], [player],
+# [permission] <node>, [close], [open_menu] <id>, and [delay] <ticks> before following actions.
+items:
+  # Item showing the custom title that will be deleted.
+  title:
+    material: NAME_TAG
+    amount: 1
+    slot: 13
+    display_name: "{title}"
+    lore:
+      - ""
+      - " <#FF5555>Are you sure you want to delete this title?"
+
+  # Button that permanently deletes the title.
+  confirm:
+    material: LIME_DYE
+    amount: 1
+    slot: 15
+    display_name: "<#BFF3C7>Yes"
+    lore:
+      - " <#E7FFE7>Delete this title permanently."
+    click_commands:
+      - "[sound] entity.experience_orb.pickup 0.8 1.2"
+
+  # Button that returns without deleting.
+  cancel:
+    material: RED_DYE
+    amount: 1
+    slot: 11
+    display_name: "<#FF5555>No"
+    lore:
+      - " <#FFE7E7>Return without deleting the title."
+    click_commands:
+      - "[sound] entity.villager.no 1 1"

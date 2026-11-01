@@ -1,0 +1,159 @@
+# Layout and controls for editing custom-title formatting.
+id: custom_title_editor
+# Text displayed in the inventory window. Supports MiniMessage and menu placeholders.
+menu_title: "Custom title editor"
+# Inventory size in slots: a multiple of 9 from 9 to 54.
+size: 45
+
+# Item options: material accepts a Bukkit name or supported custom-item ID; amount sets stack size.
+# slot/slots set 0-based positions. display_name/lore support MiniMessage and menu placeholders.
+# click_commands accepts [sound] <name> [volume] [pitch], [message], [broadcast], [console], [player],
+# [permission] <node>, [close], [open_menu] <id>, and [delay] <ticks> before following actions.
+items:
+  # Current custom-title preview; clicking opens text entry.
+  preview:
+    material: NAME_TAG
+    amount: 1
+    slot: 13
+    display_name: "{preview}"
+    lore:
+      - ""
+      - " <#b6c2f1>▪ <#E7EBFF>Click to type the title"
+
+  cancel:
+    material: RED_DYE
+    amount: 1
+    slot: 11
+    display_name: "<#FF5555>Cancel"
+    lore: [" <#FFE7E7>Discard changes"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  confirm:
+    material: LIME_DYE
+    amount: 1
+    slot: 15
+    display_name: "<#BFF3C7>Confirm"
+    lore: [" <#E7FFE7>Save and select this title"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  # Color selection buttons shown in the editor.
+  colors:
+    - material: LEATHER_CHESTPLATE
+      slot: 12
+      display_name: "<#E7EBFF>Color 1"
+      lore: [" <#b6c2f1>Click <#E7EBFF>— choose the first color"]
+      click_commands:
+        - "[sound] ui.button.click 1 1"
+    - material: LEATHER_CHESTPLATE
+      slot: 14
+      display_name: "<#E7EBFF>Color 2"
+      lore: [" <#b6c2f1>Click <#E7EBFF>— choose the second color"]
+      click_commands:
+        - "[sound] ui.button.click 1 1"
+
+  # Bold toggle; enabled/disabled define its two appearances.
+  bold:
+    # Item displayed while this formatting option is enabled.
+    enabled:
+      material: LIME_DYE
+      amount: 1
+      slot: 29
+      display_name: "<#BFF3C7>Bold: ON"
+      lore: [" <#E7FFE7>Click <#E7EBFF>— disable <bold>bold</bold>"]
+      click_commands:
+        - "[sound] ui.button.click 1 1"
+    # Item displayed while this formatting option is disabled.
+    disabled:
+      material: RED_DYE
+      amount: 1
+      slot: 29
+      display_name: "<#FF5555>Bold: OFF"
+      lore: [" <#FFE7E7>Click <#E7EBFF>— enable <bold>bold</bold>"]
+      click_commands:
+        - "[sound] ui.button.click 1 1"
+
+  # Italic toggle; enabled/disabled define its two appearances.
+  italic:
+    # Item displayed while this formatting option is enabled.
+    enabled:
+      material: LIME_DYE
+      amount: 1
+      slot: 30
+      display_name: "<#BFF3C7>Italic: ON"
+      lore: [" <#E7FFE7>Click <#E7EBFF>— disable <italic>italic</italic>"]
+      click_commands:
+        - "[sound] ui.button.click 1 1"
+    # Item displayed while this formatting option is disabled.
+    disabled:
+      material: RED_DYE
+      amount: 1
+      slot: 30
+      display_name: "<#FF5555>Italic: OFF"
+      lore: [" <#FFE7E7>Click <#E7EBFF>— enable <italic>italic</italic>"]
+      click_commands:
+        - "[sound] ui.button.click 1 1"
+
+  # Underline toggle; enabled/disabled define its two appearances.
+  underlined:
+    # Item displayed while this formatting option is enabled.
+    enabled:
+      material: LIME_DYE
+      amount: 1
+      slot: 31
+      display_name: "<#BFF3C7>Underline: ON"
+      lore: [" <#E7FFE7>Click <#E7EBFF>— disable <underlined>underline</underlined>"]
+      click_commands:
+        - "[sound] ui.button.click 1 1"
+    # Item displayed while this formatting option is disabled.
+    disabled:
+      material: RED_DYE
+      amount: 1
+      slot: 31
+      display_name: "<#FF5555>Underline: OFF"
+      lore: [" <#FFE7E7>Click <#E7EBFF>— enable <underlined>underline</underlined>"]
+      click_commands:
+        - "[sound] ui.button.click 1 1"
+
+  # Strikethrough toggle; enabled/disabled define its two appearances.
+  strikethrough:
+    # Item displayed while this formatting option is enabled.
+    enabled:
+      material: LIME_DYE
+      amount: 1
+      slot: 32
+      display_name: "<#BFF3C7>Strikethrough: ON"
+      lore: [" <#E7FFE7>Click <#E7EBFF>— disable <strikethrough>strikethrough</strikethrough>"]
+      click_commands:
+        - "[sound] ui.button.click 1 1"
+    # Item displayed while this formatting option is disabled.
+    disabled:
+      material: RED_DYE
+      amount: 1
+      slot: 32
+      display_name: "<#FF5555>Strikethrough: OFF"
+      lore: [" <#FFE7E7>Click <#E7EBFF>— enable <strikethrough>strikethrough</strikethrough>"]
+      click_commands:
+        - "[sound] ui.button.click 1 1"
+
+  # Obfuscation toggle; enabled/disabled define its two appearances.
+  obfuscated:
+    # Item displayed while this formatting option is enabled.
+    enabled:
+      material: LIME_DYE
+      amount: 1
+      slot: 33
+      display_name: "<#BFF3C7>Obfuscated: ON"
+      lore: [" <#E7FFE7>Click <#E7EBFF>— disable <obfuscated>obfuscated</obfuscated>"]
+      click_commands:
+        - "[sound] ui.button.click 1 1"
+    # Item displayed while this formatting option is disabled.
+    disabled:
+      material: RED_DYE
+      amount: 1
+      slot: 33
+      display_name: "<#FF5555>Obfuscated: OFF"
+      lore: [" <#FFE7E7>Click <#E7EBFF>— enable <obfuscated>obfuscated</obfuscated>"]
+      click_commands:
+        - "[sound] ui.button.click 1 1"

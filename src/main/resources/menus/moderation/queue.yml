@@ -1,0 +1,54 @@
+# Layout and item template for the custom-title moderation queue.
+id: moderation
+# Text displayed in the inventory window. Supports MiniMessage and menu placeholders.
+menu_title: "Custom Title Review"
+# Inventory size in slots: a multiple of 9 from 9 to 54.
+size: 54
+# First inventory slot used for automatically placed entries.
+first_slot: 0
+
+# Item options: material accepts a Bukkit name or supported custom-item ID; amount sets stack size.
+# slot/slots set 0-based positions. display_name/lore support MiniMessage and menu placeholders.
+# click_commands accepts [sound] <name> [volume] [pitch], [message], [broadcast], [console], [player],
+# [permission] <node>, [close], [open_menu] <id>, and [delay] <ticks> before following actions.
+items:
+  # Template for a pending custom-title review entry.
+  entry:
+    material: NAME_TAG
+    amount: 1
+    display_name: "{title}"
+    lore:
+      - ""
+      - " <#b6c2f1>ID: <#E7EBFF>{id}"
+      - " <#b6c2f1>Author: <#E7EBFF>{author}"
+      - ""
+      - " <#b6c2f1>Left click <#E7EBFF>— approve"
+      - " <#b6c2f1>Right click <#E7EBFF>— reject"
+      - " <#b6c2f1>Q <#E7EBFF>— reject with a reason"
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  # Button that closes the moderation queue.
+  back:
+    material: ARROW
+    slot: 49
+    display_name: "<#b6c2f1>Back"
+    lore: [" <#E7EBFF>Close the moderation queue"]
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  # Button that opens the next queue page.
+  next-page:
+    material: ARROW
+    slot: 50
+    display_name: "<#BFF3C7>Next page"
+    click_commands:
+      - "[sound] ui.button.click 1 1"
+
+  # Button that opens the previous queue page.
+  previous-page:
+    material: ARROW
+    slot: 48
+    display_name: "<#b6c2f1>Previous page"
+    click_commands:
+      - "[sound] ui.button.click 1 1"
